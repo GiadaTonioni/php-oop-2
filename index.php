@@ -29,6 +29,15 @@ require_once __DIR__.'/Models/Giochi.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Boolshop</h2>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="container">
         <div class="row">
             <?php foreach($prodotti as $prodotto): ?>
@@ -36,7 +45,37 @@ require_once __DIR__.'/Models/Giochi.php';
                     <div class="card">
                         <img src="<?php echo $prodotto->image; ?>">
                         <div class="card-body">
-                            <h4 class="card-title"><?php echo $prodotto->name ?></h4>
+                            <h4 class="card-title"><?php echo $prodotto->name; ?></h4>
+                            <p class="card-text">
+                                <?php echo $prodotto->category; ?>
+                            </p>
+                            <p class="card-text">
+                                Prezzo: € <?php echo $prodotto->price; ?>
+                            </p>
+                            <?php if(get_class($prodotto) === 'Cibo'){ ?>
+                                <p class="card-text">
+                                    Peso: <?php echo $prodotto->weight.'g'; ?>
+                                </p>
+                                <p class="card-text">
+                                    Ingredienti: <?php echo $prodotto->ingredients; ?>
+                                </p>
+                            <?php } ?>
+                            <?php if(get_class($prodotto) === 'Giochi'){ ?>
+                                <p class="card-text">
+                                    Caratteristiche: <?php echo $prodotto->features; ?>
+                                </p>
+                                <p class="card-text">
+                                    Dimensioni: <?php echo $prodotto->size; ?>
+                                </p>
+                            <?php } ?>
+                            <?php if(get_class($prodotto) === 'Accessori'){ ?>
+                                <p class="card-text">
+                                    Materiali: <?php echo $prodotto->materials; ?>
+                                </p>
+                                <p class="card-text">
+                                    Dimensioni: <?php echo $prodotto->size; ?>
+                                </p>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
