@@ -5,8 +5,6 @@ require_once __DIR__.'/Models/Cibo.php';
 require_once __DIR__.'/Models/Accessori.php';
 require_once __DIR__.'/Models/Giochi.php';
 
-//$prodotti = new Prodotti('Test prodotto', 'httpsimmagine.jpg', 34.10, 'Cane');
- //var_dump($prodotti)
 
  $prodotti = [
     new Cibo('Royal Canin Mini Adult', 'https://arcaplanet.vtexassets.com/arquivos/ids/243820/royal-canin-size-cane-mini-adult.jpg', 43.99, 'Cani', 545, 'prosciutto, riso'),
@@ -33,9 +31,13 @@ require_once __DIR__.'/Models/Giochi.php';
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-4">
-                <div class="card"></div>
-            </div>
+            <?php foreach($prodotti as $prodotto); ?>
+                <div class="col-4">
+                    <div class="card">
+                        <img src="<?php echo $prodotti->image; ?>">
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </body>
