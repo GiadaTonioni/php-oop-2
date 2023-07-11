@@ -31,10 +31,13 @@ require_once __DIR__.'/Models/Giochi.php';
 <body>
     <div class="container">
         <div class="row">
-            <?php foreach($prodotti as $prodotto); ?>
+            <?php foreach($prodotti as $prodotto): ?>
                 <div class="col-4">
                     <div class="card">
-                        <img src="<?php echo $prodotti->image; ?>">
+                        <img src="<?php echo $prodotto->image; ?>">
+                        <div class="card-body">
+                            <h4 class="card-title"><?php echo $prodotto->name ?></h4>
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>
